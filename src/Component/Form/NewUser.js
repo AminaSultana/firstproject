@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
 import Button from "../UI/Button";
 import classes from './NewUser.module.css'
+import Wrapper from '../Helper/Wrapper'
 
 const NewUser = (props) => {
   const [name, setName] = useState("");
@@ -21,7 +22,7 @@ const NewUser = (props) => {
     if (name.trim().length === 0 || age.trim().length === 0) {
       setError({
         title: "Invalid Input",
-        message: "Please enter a valid nae and age",
+        message: "Please enter a valid name and age",
       });
       return;
     }
@@ -46,10 +47,10 @@ const NewUser = (props) => {
   };
 
   return (
-    <div>
+    <Wrapper>
       {error && <ErrorModal title={error.title} message={error.message}
       onConfirm={errorHandler} />}
-      <Card classNAme={classes.input}>
+      <Card className={classes.input}>
         <form onSubmit={NewUserHandler}>
           <h2>UserName</h2>
           <input type="text" value={name} onChange={nameChangeHandler} />
@@ -58,7 +59,7 @@ const NewUser = (props) => {
           <Button type="submit"> Add User</Button>
         </form>
       </Card>
-    </div>
+    </Wrapper>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import NewUser from './Component/Form/NewUser';
 import ShowUser from './Component/ShowUser/ShowUser';
@@ -16,10 +16,10 @@ function App() {
     })
   }
   return (
-    <div className="App">
+    <React.Fragment>
       <NewUser onFormSubmit={formSubmitHandler}/>
       <ShowUser userArr={user}/>
-    </div>
+    </React.Fragment>
   );
 }
 
